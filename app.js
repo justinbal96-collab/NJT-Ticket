@@ -4,11 +4,34 @@ if (savedColor) {
 }
 
 const TOTAL_SECONDS = 60 * 60;
+const DEFAULT_INITIAL_REMAINING_SECONDS = TOTAL_SECONDS;
 
 const countdownEl = document.getElementById("countdown");
 const progressFillEl = document.getElementById("progressFill");
 const pulseBarEl = document.getElementById("pulseBar");
 
+function parseInitialRemainingSeconds() {
+  const urlValue = new URLSearchParams(window.location.search).get("remaining");
+  const input = urlValue;
+  if (!input) {
+    return DEFAULT_INITIAL_REMAINING_SECONDS;
+  }
+
+  if (/^\d+$/.test(input)) {
+    return Math.min(Math.max(parseInt(input, 10), 0), TOTAL_SECONDS);
+  }
+
+  const match = input.match(/^(\d{1,2}):([0-5]\d)$/);
+  if (!match) {
+    return DEFAULT_INITIAL_REMAINING_SECONDS;
+  }
+
+  const minutes = parseInt(match[1], 10);
+  const seconds = parseInt(match[2], 10);
+  return Math.min(Math.max(minutes * 60 + seconds, 0), TOTAL_SECONDS);
+}
+
+const initialRemainingSeconds = parseInitialRemainingSeconds();
 const startTimestamp = Date.now();
 let lastRenderedSeconds = -1;
 
@@ -20,7 +43,7 @@ function formatClock(totalSeconds) {
 
 function updateTicketTimer() {
   const elapsed = Math.floor((Date.now() - startTimestamp) / 1000);
-  const remaining = Math.max(TOTAL_SECONDS - elapsed, 0);
+  const remaining = Math.max(initialRemainingSeconds - elapsed, 0);
 
   if (remaining !== lastRenderedSeconds) {
     lastRenderedSeconds = remaining;
