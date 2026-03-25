@@ -7,15 +7,27 @@
   "theme_color": "#1E86D7",
   "icons": [
     {
-      "src": "qr-code.jpg?v=20260325a",
-      "sizes": "448x448",
-      "type": "image/jpeg",
+      "src": "app-icon.png?v=20260325b",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "apple-touch-icon.png?v=20260325b",
+      "sizes": "180x180",
+      "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "assets/qr-code.jpg?v=20260325a",
-      "sizes": "448x448",
-      "type": "image/jpeg",
+      "src": "assets/app-icon.png?v=20260325b",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/apple-touch-icon.png?v=20260325b",
+      "sizes": "180x180",
+      "type": "image/png",
       "purpose": "any"
     }
   ]
