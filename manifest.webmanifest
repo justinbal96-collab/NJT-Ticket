@@ -1,0 +1,16 @@
+{
+  "name": "One Way Ticket",
+  "short_name": "Ticket",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#3f82cd",
+  "theme_color": "#3f82cd",
+  "icons": [
+    {
+      "src": "assets/qr-code.jpg",
+      "sizes": "448x448",
+      "type": "image/jpeg",
+      "purpose": "any"
+    }
+  ]
+}
