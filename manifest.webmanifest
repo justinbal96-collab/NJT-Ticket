@@ -7,6 +7,12 @@
   "theme_color": "#4184d1",
   "icons": [
     {
+      "src": "qr-code.jpg",
+      "sizes": "448x448",
+      "type": "image/jpeg",
+      "purpose": "any"
+    },
+    {
       "src": "assets/qr-code.jpg",
       "sizes": "448x448",
       "type": "image/jpeg",
