@@ -6,12 +6,12 @@
       name="viewport"
       content="width=device-width, initial-scale=1, viewport-fit=cover"
     />
-    <meta name="theme-color" content="#4184d1" />
+    <meta name="theme-color" content="#1E86D7" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <title>One Way Ticket</title>
     <link rel="manifest" href="manifest.webmanifest" />
-    <link rel="apple-touch-icon" href="qr-code.jpg" />
+    <link rel="apple-touch-icon" href="qr-code.jpg?v=20260325a" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
@@ -28,9 +28,9 @@
         <section class="ticket-card" aria-label="Ticket Card">
           <div class="qr-frame">
             <img
-              src="qr-code.jpg"
+              src="qr-code.jpg?v=20260325a"
               alt="Ticket QR code"
-              onerror="if (!this.dataset.fallback) { this.dataset.fallback = '1'; this.src = 'assets/qr-code.jpg'; }"
+              onerror="if (!this.dataset.fallback) { this.dataset.fallback = '1'; this.src = 'assets/qr-code.jpg?v=20260325a'; }"
             />
           </div>
 
@@ -48,9 +48,9 @@
           <div class="ticket-footer">
             <div class="pulse-bar" id="pulseBar" aria-hidden="true">
               <img
-                src="flashing-bar-cropped.png"
+                src="flashing-bar-cropped.png?v=20260325a"
                 alt=""
-                onerror="if (!this.dataset.fallback) { this.dataset.fallback = '1'; this.src = 'assets/flashing-bar-cropped.png'; }"
+                onerror="if (!this.dataset.fallback) { this.dataset.fallback = '1'; this.src = 'assets/flashing-bar-cropped.png?v=20260325a'; }"
               />
             </div>
 

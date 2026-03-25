@@ -3,17 +3,17 @@
   "short_name": "Ticket",
   "start_url": ".",
   "display": "standalone",
-  "background_color": "#4184d1",
-  "theme_color": "#4184d1",
+  "background_color": "#1E86D7",
+  "theme_color": "#1E86D7",
   "icons": [
     {
-      "src": "qr-code.jpg",
+      "src": "qr-code.jpg?v=20260325a",
       "sizes": "448x448",
       "type": "image/jpeg",
       "purpose": "any"
     },
     {
-      "src": "assets/qr-code.jpg",
+      "src": "assets/qr-code.jpg?v=20260325a",
       "sizes": "448x448",
       "type": "image/jpeg",
       "purpose": "any"
