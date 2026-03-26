@@ -169,15 +169,6 @@
       .save-btn:active {
         opacity: 0.85;
       }
-      .reset-btn {
-        background: none;
-        border: none;
-        color: #5a5f66;
-        font-size: 14px;
-        text-decoration: underline;
-        cursor: pointer;
-        margin-top: 4px;
-      }
     </style>
   </head>
   <body>
@@ -222,6 +213,10 @@
             <span class="preset-swatch" style="background:#FDCA33;"></span>
             Yellow
           </button>
+          <button class="preset-btn" type="button" data-preset-color="#FF5C5C">
+            <span class="preset-swatch" style="background:#FF5C5C;"></span>
+            Red
+          </button>
           <button class="preset-btn" type="button" data-preset-color="#992991">
             <span class="preset-swatch" style="background:#992991;"></span>
             Purple
@@ -237,7 +232,6 @@
         </div>
       </div>
       <button class="save-btn" id="saveBtn">Save Color</button>
-      <button class="reset-btn" id="resetBtn">Reset to Default</button>
     </div>
     <script>
       const DEFAULT_COLOR = "#ff5c5c";
@@ -245,7 +239,6 @@
       const colorPicker = document.getElementById("colorPicker");
       const hexInput = document.getElementById("hexInput");
       const saveBtn = document.getElementById("saveBtn");
-      const resetBtn = document.getElementById("resetBtn");
       const presetButtons = document.querySelectorAll("[data-preset-color]");
 
       function normalizeHex(color) {
@@ -289,11 +282,6 @@
       saveBtn.addEventListener("click", () => {
         localStorage.setItem("qrFrameColor", colorPicker.value);
         window.location.href = "index.html";
-      });
-
-      resetBtn.addEventListener("click", () => {
-        localStorage.removeItem("qrFrameColor");
-        setColor(DEFAULT_COLOR);
       });
     </script>
   </body>
