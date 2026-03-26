@@ -153,6 +153,29 @@
         text-align: center;
         font-family: monospace;
       }
+      .zones-wrap {
+        width: 100%;
+        max-width: 280px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+      .zones-label {
+        font-size: 16px;
+        font-weight: 600;
+        color: #12171d;
+        text-align: center;
+      }
+      .zone-input {
+        font-size: 20px;
+        font-weight: 600;
+        padding: 10px 14px;
+        border: 2px solid #d0d3d8;
+        border-radius: 10px;
+        width: 100%;
+        text-align: center;
+        font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+      }
       .save-btn {
         width: 100%;
         max-width: 280px;
@@ -231,13 +254,26 @@
           </button>
         </div>
       </div>
+      <div class="zones-wrap">
+        <label class="zones-label" for="zoneInput">Zones</label>
+        <input
+          type="text"
+          id="zoneInput"
+          class="zone-input"
+          inputmode="numeric"
+          pattern="[0-9]*"
+          value="4"
+        />
+      </div>
       <button class="save-btn" id="saveBtn">Save Color</button>
     </div>
     <script>
       const DEFAULT_COLOR = "#ff5c5c";
+      const DEFAULT_ZONE = "4";
       const preview = document.getElementById("preview");
       const colorPicker = document.getElementById("colorPicker");
       const hexInput = document.getElementById("hexInput");
+      const zoneInput = document.getElementById("zoneInput");
       const saveBtn = document.getElementById("saveBtn");
       const presetButtons = document.querySelectorAll("[data-preset-color]");
 
@@ -251,8 +287,19 @@
         return withHash.toLowerCase();
       }
 
+      function normalizeZone(value) {
+        if (value === null || value === undefined) return null;
+        const trimmed = String(value).trim();
+        if (!/^\d+$/.test(trimmed)) {
+          return null;
+        }
+        return String(parseInt(trimmed, 10));
+      }
+
       const saved = localStorage.getItem("qrFrameColor") || DEFAULT_COLOR;
+      const savedZone = normalizeZone(localStorage.getItem("zoneNumber")) || DEFAULT_ZONE;
       setColor(saved);
+      zoneInput.value = savedZone;
 
       function setColor(color) {
         const normalized = normalizeHex(color) || DEFAULT_COLOR;
@@ -263,6 +310,10 @@
 
       colorPicker.addEventListener("input", () => {
         setColor(colorPicker.value);
+      });
+
+      zoneInput.addEventListener("input", () => {
+        zoneInput.value = zoneInput.value.replace(/[^\d]/g, "");
       });
 
       hexInput.addEventListener("input", () => {
@@ -280,7 +331,10 @@
       });
 
       saveBtn.addEventListener("click", () => {
-        localStorage.setItem("qrFrameColor", colorPicker.value);
+        const normalizedColor = normalizeHex(colorPicker.value) || DEFAULT_COLOR;
+        const normalizedZone = normalizeZone(zoneInput.value) || DEFAULT_ZONE;
+        localStorage.setItem("qrFrameColor", normalizedColor);
+        localStorage.setItem("zoneNumber", normalizedZone);
         window.location.href = "index.html";
       });
     </script>

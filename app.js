@@ -3,6 +3,12 @@ if (savedColor) {
   document.querySelector(".qr-frame").style.backgroundColor = savedColor;
 }
 
+const zoneNumberEl = document.getElementById("zoneNumber");
+const savedZone = localStorage.getItem("zoneNumber");
+if (zoneNumberEl && savedZone && /^\d+$/.test(savedZone.trim())) {
+  zoneNumberEl.textContent = String(parseInt(savedZone, 10));
+}
+
 const TOTAL_SECONDS = 60 * 60;
 const DEFAULT_INITIAL_REMAINING_SECONDS = TOTAL_SECONDS;
 
