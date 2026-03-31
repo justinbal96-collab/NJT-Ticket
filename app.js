@@ -70,4 +70,4 @@ function togglePulseBar() {
 updateTicketTimer();
 
 const timerInterval = setInterval(updateTicketTimer, 250);
-const pulseInterval = setInterval(togglePulseBar, 1000);
+const pulseInterval = setInterval(togglePulseBar, 800);
