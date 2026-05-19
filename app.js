@@ -1,5 +1,7 @@
+const DEFAULT_QR_FRAME_COLOR = "#0066ff";
 const savedColor = localStorage.getItem("qrFrameColor");
-if (savedColor) {
+const legacyDefaultColors = new Set(["#ff5c5c", "#ff0000", "#3385fe"]);
+if (savedColor && !legacyDefaultColors.has(savedColor.trim().toLowerCase())) {
   document.querySelector(".qr-frame").style.backgroundColor = savedColor;
 }
 

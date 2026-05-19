@@ -3,8 +3,8 @@
   "short_name": "Ticket",
   "start_url": ".",
   "display": "standalone",
-  "background_color": "#1E86D7",
-  "theme_color": "#1E86D7",
+  "background_color": "#1c87d9",
+  "theme_color": "#1c87d9",
   "icons": [
     {
       "src": "app-icon.png?v=20260325b",

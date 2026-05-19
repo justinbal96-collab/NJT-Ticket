@@ -6,7 +6,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1, viewport-fit=cover"
     />
-    <meta name="theme-color" content="#1E86D7" />
+    <meta name="theme-color" content="#1c87d9" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <title>QR Frame Color</title>
@@ -28,7 +28,7 @@
       }
       .header {
         width: 100%;
-        background: #1E86D7;
+        background: #1c87d9;
         padding: max(54px, calc(env(safe-area-inset-top) + 10px)) 16px 20px;
         display: grid;
         grid-template-columns: 30px 1fr 30px;
@@ -180,7 +180,7 @@
         width: 100%;
         max-width: 280px;
         padding: 14px;
-        background: #1E86D7;
+        background: #1c87d9;
         color: #fff;
         border: none;
         border-radius: 12px;
@@ -206,15 +206,15 @@
       </div>
       <label>Choose a color</label>
       <div class="color-input-row">
-        <input type="color" id="colorPicker" value="#ff5c5c" />
-        <input type="text" class="hex-input" id="hexInput" value="#ff5c5c" maxlength="7" />
+        <input type="color" id="colorPicker" value="#0066ff" />
+        <input type="text" class="hex-input" id="hexInput" value="#0066ff" maxlength="7" />
       </div>
       <div class="preset-wrap">
         <div class="preset-label">Preset colors</div>
         <div class="preset-grid">
-          <button class="preset-btn" type="button" data-preset-color="#3385FE">
-            <span class="preset-swatch" style="background:#01B1E7;"></span>
-            Blue
+          <button class="preset-btn" type="button" data-preset-color="#0066ff">
+            <span class="preset-swatch" style="background:#0066ff;"></span>
+            Bright Blue
           </button>
           <button class="preset-btn" type="button" data-preset-color="#005CAC">
             <span class="preset-swatch" style="background:#005CAC;"></span>
@@ -268,7 +268,7 @@
       <button class="save-btn" id="saveBtn">Save</button>
     </div>
     <script>
-      const DEFAULT_COLOR = "#ff5c5c";
+      const DEFAULT_COLOR = "#0066ff";
       const DEFAULT_ZONE = "4";
       const preview = document.getElementById("preview");
       const colorPicker = document.getElementById("colorPicker");
@@ -296,7 +296,9 @@
         return String(parseInt(trimmed, 10));
       }
 
-      const saved = localStorage.getItem("qrFrameColor") || DEFAULT_COLOR;
+      const savedRaw = localStorage.getItem("qrFrameColor");
+      const legacyDefaultColors = new Set(["#ff5c5c", "#ff0000", "#3385fe"]);
+      const saved = savedRaw && !legacyDefaultColors.has(savedRaw.trim().toLowerCase()) ? savedRaw : DEFAULT_COLOR;
       const savedZone = normalizeZone(localStorage.getItem("zoneNumber")) || DEFAULT_ZONE;
       setColor(saved);
       zoneInput.value = savedZone;
