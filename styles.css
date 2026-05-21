@@ -193,10 +193,10 @@ h2 {
 }
 
 .pulse-bar {
-  height: 10px;
-  width: 100vw;
-  margin: 0 0 17px;
-  transform: translateX(-36px);
+  height: 10.35px;
+  width: 86.4%;
+  margin: 0 auto 17px;
+  transform: none;
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -291,11 +291,11 @@ h2 {
   }
 
   .pulse-bar {
-    height: 10px;
-    width: 100vw;
-  margin: 0 0 17px;
-  transform: translateX(-36px);
-  overflow: hidden;
+    height: 10.35px;
+    width: 86.4%;
+    margin: 0 auto 17px;
+    transform: none;
+    overflow: hidden;
   }
 
   .progress-track {
